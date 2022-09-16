@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS Performers (
 CREATE TABLE IF NOT EXISTS Album (
 	album_id SERIAL PRIMARY KEY,
 	name VARCHAR (60) NOT NULL,
-	year DATE
+	year INTEGER
 );
 CREATE TABLE IF NOT EXISTS Genre_performers (
 	genre_id INTEGER REFERENCES Genre (genre_id),
@@ -22,16 +22,15 @@ CREATE TABLE IF NOT EXISTS Album_performers (
 CREATE TABLE IF NOT EXISTS Tracks (
 	tracks_id SERIAL PRIMARY KEY,
 	name VARCHAR (60) NOT NULL,
-	duration TIME,
+	duration INTEGER,
 	album_id INTEGER REFERENCES Album (album_id)
 );
 CREATE TABLE IF NOT EXISTS Сollection (
 	collection_id SERIAL PRIMARY KEY,
 	name VARCHAR (60) NOT NULL,
-	year DATE
+	year INTEGER
 );
 CREATE TABLE IF NOT EXISTS Collection_tracks (
 	collection_id INTEGER REFERENCES Сollection (collection_id),
 	tracks_id INTEGER REFERENCES Tracks (tracks_id)
 );
-	
